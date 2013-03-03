@@ -694,6 +694,7 @@ class Releases
 		$ri->delete($guid);
 
 
+
 	}	
 
 	/**
@@ -2050,11 +2051,6 @@ ORDER BY COUNT(*) DESC");
 			$db = new DB();
 			return $db->query("SELECT * FROM releases a, category b WHERE b.title = 'Console' and a.consoleinfoID != '-2' ORDER BY a.postdate DESC LIMIT 5");
 	}
-	//public function getSDMovies()
-         //   {
-          //          $db = new DB();
-           //         return $db->query("SELECT DISTINCT (imdbID), guid, name FROM releases WHERE categoryID = '2030' AND imdbID !='NULL' GROUP BY imdbID ORDER BY postdate DESC LIMIT 5");
-        //    }
 	public function get5MP3s()
 	{
 		$db = new DB();

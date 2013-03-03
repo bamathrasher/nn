@@ -1,6 +1,6 @@
 Newznab+ Features
 ==
-Use these modifications at your own risk. I take no responsibility for any damage done to your Newznab environment. I will be posting features/changes to the standard newznab configuration that you are free to use.
+Use these modifications at your own risk. I take no responsibility for any damage done to your Newznab environment. I will be posting features/changes to the standard newznab configuration that you are free to use. Special thanks to Safra from #newznab for helping write the initial query.
 
 Newznab+ Coverwall:
 
