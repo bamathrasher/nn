@@ -9,3 +9,5 @@ Do a git clone to pull down my versions of the files and rename your originals s
 {NN_WEB_DIR}/www/lib/releases.php<br>
 {NN_WEB_DIR}/www/pages/content.php<br>
 {NN_WEB_DIR}/www/templates/default/views/frontend/content.tpl
+
+<img src="http://i.imgur.com/z64F40P.png"/>
