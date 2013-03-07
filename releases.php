@@ -695,6 +695,7 @@ class Releases
 
 
 
+
 	}	
 
 	/**
@@ -2044,22 +2045,22 @@ ORDER BY COUNT(*) DESC");
 	public function get5Movies()
             {
                     $db = new DB();
-                    return $db->query("SELECT DISTINCT (imdbID), guid, name, title, searchname, size, completion, postdate, categoryID, comments, grabs FROM releases a, category b WHERE b.title = 'Movies' AND a.imdbID !='NULL' GROUP BY a.imdbID ORDER BY a.postdate DESC LIMIT 5");
+                    return $db->query("SELECT DISTINCT (a.imdbID), guid, name, b.title, searchname, size, completion, postdate, categoryID, comments, grabs, c.cover FROM releases a, category b, movieinfo c WHERE b.title = 'Movies'  and a.imdbID = c.imdbID and a.imdbID !='NULL' GROUP BY a.imdbID ORDER BY a.postdate DESC LIMIT 5");
             }
 	public function get5Console()
 	{
 			$db = new DB();
-			return $db->query("SELECT * FROM releases a, category b WHERE b.title = 'Console' and a.consoleinfoID != '-2' ORDER BY a.postdate DESC LIMIT 5");
+			return $db->query("SELECT DISTINCT (a.consoleinfoID), guid, name, b.title, searchname, size, completion, postdate, categoryID, comments, grabs, c.cover FROM releases a, category b, consoleinfo c WHERE b.title = 'Console' and a.consoleinfoID = c.ID and a.consoleinfoID != '-2' and a.consoleinfoID != '0' GROUP BY a.consoleinfoID ORDER BY a.postdate DESC LIMIT 5");
 	}
 	public function get5MP3s()
 	{
 		$db = new DB();
-		return $db->query("SELECT * FROM releases WHERE categoryID = '3010' AND musicinfoID !='-2' ORDER by postdate DESC LIMIT 5");
+		return $db->query("SELECT DISTINCT (a.musicinfoID), guid, name, b.title, searchname, size, completion, postdate, categoryID, comments, grabs, c.cover FROM releases a, category b, musicinfo c WHERE b.title = 'Audio' and a.musicinfoID = c.ID and a.musicinfoID != '-2' GROUP BY a.musicinfoID ORDER BY a.postdate DESC LIMIT 5");
 	}
 	public function get5Books()
 	{
 		$db = new DB();
-		return $db->query("SELECT * FROM releases WHERE categoryID = '7020' AND bookinfoID !='-2' ORDER BY postdate DESC LIMIT 5");
+		return $db->query("SELECT DISTINCT (a.bookinfoID), guid, name, b.title, searchname, size, completion, postdate, categoryID, comments, grabs, c.cover FROM releases a, category b, bookinfo c WHERE b.title = 'Books' and a.bookinfoID = c.ID and a.bookinfoID != '-2' GROUP BY a.bookinfoID ORDER BY a.postdate DESC LIMIT 5");
 	}
 }
 
